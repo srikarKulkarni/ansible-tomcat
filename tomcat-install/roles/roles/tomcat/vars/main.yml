@@ -1,0 +1,6 @@
+---
+# vars file for tomcat
+# #
+    java_home: "{{ lookup('env','JAVA_HOME') }}"
+    http_port: 9000
+    tomcat_dest: "/opt/tomcat/" 
