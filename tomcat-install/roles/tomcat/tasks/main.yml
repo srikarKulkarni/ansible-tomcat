@@ -22,7 +22,7 @@
           mode: 0755
 - name: download tomcat
   unarchive:
-          src: https://downloads.apache.org/tomcat/tomcat-9/v9.0.33/bin/apache-tomcat-9.0.33.tar.gz
+          src: "{{ tomcat }}"
           dest: /opt/tomcat/
           remote_src: yes
 - name: change ownership
@@ -38,10 +38,14 @@
   template:
           src: server.xml
           dest: /opt/tomcat/apache-tomcat-9.0.33/conf/server.xml
-- name: tomcat.serve
-  template:
-          src: tommcat.service
-          dest: /etc/systemd/system/tomcat.service
+          #- name: tomcat.service
+          #  template:
+          #          src: tommcat.service
+          #          dest: /etc/systemd/system/tomcat.service
+- name: write tomcat.service 
+  copy: 
+      src: tomcat.service
+      dest: /etc/systemd/system/tomcat.service
 - name: start and enable tomcat service
   systemd:
           name: tomcat

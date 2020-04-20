@@ -1,8 +1,10 @@
 ---
-  - hosts: localhost
+  - hosts: dev
     become: yes
     become_method: sudo
-
+    vars_files: 
+         - "../tomcat-install/environments/dev/vars/dev.yml"
     roles:
-            - java8
+            
+            #- java8
             - tomcat  

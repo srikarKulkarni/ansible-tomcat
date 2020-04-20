@@ -1,7 +1,7 @@
 ---
 # tasks file for java8
   - name: Download Java
-    command: "wget {{download_url}} -P {{download_folder}}"
+    command: "wget {{java}} -P {{download_folder}}"
   - name: Archive Java
     command: "{{ item }}"
     with_items:
