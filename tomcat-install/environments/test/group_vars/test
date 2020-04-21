@@ -1,0 +1,25 @@
+---
+# Tomcat Vars
+tomcat_version: "9.0.33"
+tomcat_v: "9"
+tomcat: "https://downloads.apache.org/tomcat/tomcat-{{tomcat_v}}/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz"
+
+#tomcat8: "https://downloads.apache.org/tomcat/tomcat-8/v8.5.54/bin/apache-tomcat-8.5.54-deployer.tar.gz"
+
+tomcat_http_port: 9000
+tomcat_user: "tomcat"
+tomcat_pass: "password"
+
+#Tomcat.service CAtalina Opts
+
+Xms: "512M"
+Xmx: "1024M"
+
+#maven vars
+command: "install"
+
+#JAva Vars
+java_home_path: "usr/java/java-se-8u41-ri"
+
+java:  "https://download.java.net/openjdk/jdk8u41/ri/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz"
+
