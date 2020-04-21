@@ -1,5 +1,5 @@
 ---
-  - hosts: test
+  - hosts: dev
     become: yes
     become_method: sudo
     tasks:

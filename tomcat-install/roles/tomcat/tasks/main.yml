@@ -11,9 +11,9 @@
        name: tomcat
 - name: add tomcat user
   user: 
-      name: tomcat
-      group: tomcat
-      home: /home/tomcat/
+      name: "{{tomcat_user}}"
+      group: "{{tomcat_group}}"
+      home: "/home/{{tomcat_user}}/"
       createhome: yes
 - name: create tomcat directory
   file:
@@ -31,8 +31,8 @@
           state: directory
           mode: 0755
           recurse: yes
-          owner: tomcat
-          group: tomcat
+          owner: "{{tomcat_user}}"
+          group: "{{tomcat_group}}"
 
 - name: configure server.xml
   template:
