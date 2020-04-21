@@ -8,7 +8,7 @@ Type=forking
 User=tomcat
 Group=tomcat
 
-Environment=JRE_HOME=/usr/java/java-se-8u41-ri/jre
+Environment=JRE_HOME={{java_home_path}}/jre
 Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
 
 Environment="CATALINA_BASE=/opt/tomcat/apache-tomcat-{{tomcat_version}}"
