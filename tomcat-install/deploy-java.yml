@@ -1,0 +1,9 @@
+ - hosts: dev
+   become: yes
+   become_method: sudo
+   vars_files:
+        - "../tomcat-install/environments/dev/vars/dev.yml"
+   roles:
+           - maven
+             #- repo-clone  
+           - deploy 

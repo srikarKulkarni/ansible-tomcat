@@ -1,0 +1,10 @@
+---
+# tasks file for deploy
+- name: clean "{{ command }}"
+  shell: mvn clean "{{ command }}"
+  args:
+          chdir: ~/java-app/
+- name: copy
+  shell: cp ~/java-app/target/*.war /opt/tomcat/apache-tomcat-9.0.33/webapps/sample.war
+  notify:
+          - restart tomcat

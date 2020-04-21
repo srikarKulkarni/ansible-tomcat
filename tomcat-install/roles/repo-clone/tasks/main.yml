@@ -1,0 +1,7 @@
+---
+# tasks file for repo-clone
+- name: clone git repo
+  git : 
+        repo: https://github.com/TejaswiniTharigopula2295/java-working.git
+        version: master
+        dest: ~/java-app
