@@ -1,19 +1,13 @@
 ---
-  - hosts: dev
-    become: yes
-    become_method: sudo
-    vars_files: 
-         - "../tomcat-install/environments/dev/vars/dev.yml"
-    roles:
-            
-            #- java8
-            - tomcat  
-
   - hosts: test
     become: yes
     become_method: sudo
-    vars_files:
-            - "../tomcat-install/environments/test/vars/test.yml"
-
-    roles: 
+    tasks:
+            - debug:
+                    msg: "{{tomcat}}"
+    #vars_files: 
+    #- "../tomcat-install/environments/dev/vars/dev.yml"
+    roles:
+            
+            #- java8
             - tomcat
