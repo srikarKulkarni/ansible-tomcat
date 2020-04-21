@@ -8,3 +8,12 @@
             
             #- java8
             - tomcat  
+
+  - hosts: test
+    become: yes
+    become_method: sudo
+    vars_files:
+            - "../tomcat-install/environments/test/vars/test.yml"
+
+    roles: 
+            - tomcat
