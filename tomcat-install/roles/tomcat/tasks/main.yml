@@ -37,7 +37,7 @@
 - name: configure server.xml
   template:
           src: server.xml.j2
-          dest: /opt/tomcat/apache-tomcat-9.0.33/conf/server.xml
+          dest: "/opt/tomcat/apache-tomcat-{{tomcat_version}}/conf/server.xml"
 - name: tomcat.service
   template:
           src: tomcat.service.j2
