@@ -38,14 +38,14 @@
   template:
           src: server.xml.j2
           dest: /opt/tomcat/apache-tomcat-9.0.33/conf/server.xml
-          #- name: tomcat.service
-          #  template:
-          #          src: tommcat.service
-          #          dest: /etc/systemd/system/tomcat.service
-- name: write tomcat.service 
-  copy: 
-      src: tomcat.service
-      dest: /etc/systemd/system/tomcat.service
+- name: tomcat.service
+  template:
+          src: tomcat.service.j2
+          dest: /etc/systemd/system/tomcat.service
+#- name: write tomcat.service 
+#copy: 
+#src: tomcat.service
+#dest: /etc/systemd/system/tomcat.service
 - name: start and enable tomcat service
   systemd:
           name: tomcat
