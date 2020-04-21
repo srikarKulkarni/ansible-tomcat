@@ -9,7 +9,7 @@ tomcat: "https://downloads.apache.org/tomcat/tomcat-{{tomcat_v}}/v{{tomcat_versi
 tomcat_http_port: 9000
 tomcat_user: "tomcat"
 tomcat_pass: "password"
-
+tomcat_group: "tomcat"
 #Tomcat.service CAtalina Opts
 
 Xms: "512M"
