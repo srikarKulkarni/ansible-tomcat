@@ -1,5 +1,0 @@
----
-java:  "https://download.java.net/openjdk/jdk8u41/ri/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz"
-
-tomcat: "https://downloads.apache.org/tomcat/tomcat-8/v8.5.54/bin/apache-tomcat-8.5.54-deployer.tar.gz"
-tomcat_http_port: 9000
