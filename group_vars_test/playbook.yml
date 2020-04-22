@@ -1,8 +1,0 @@
----
-- name: varaible test
-  hosts: dev
-  vars_files:
-          - "vars/{{env}}.yml"
-  tasks: 
-          - debug:
-                  var: name
