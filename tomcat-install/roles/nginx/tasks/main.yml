@@ -1,0 +1,53 @@
+---
+# tasks file for nginx
+- name: Install NGINX Dependencies
+  apt:
+      name: "{{ item }}"
+  with_items:
+            - libssl-dev
+            - zlib1g-dev
+            - libpcre3
+            - libpcre3-dev
+            - unzip
+
+              #- name: Download nginx source
+              #  get_url:
+          #url: "{{ nginx_download_url }}"
+          #dest: " {{ nginx_install_dir }}.tar.gz"
+- name: Download nginx source
+  command: "wget {{ nginx_download_url }} -P /tmp "
+
+- name: extract nginx.tar
+  command: "tar -xzf {{ nginx_install_dir }}.tar.gz"
+  args:
+          chdir: "/tmp"
+- name: install cc compiler
+  apt:
+          name: "gcc"
+
+- name: configure nginx modules
+  command: "./configure --prefix={{ prefix }} --sbin-path={{sbin_path}} --modules-path={{ modules_path }} --conf-path={{ conf_path }} --pid-path={{ pid_path }}"
+  args:
+          chdir: "{{ nginx_install_dir }}"
+- name: make install
+  shell: make && make install
+  args:
+          chdir: "{{ nginx_install_dir }}"
+          #- name: symlink /usr/lib/nginx/modules to /etc/nginx/modules
+  #  command: "ln -s /usr/lib/nginx/modules /etc/nginx/modules"
+#  when: 
+- name: nginx.service creation
+  template: 
+        src: nginx.service.j2
+        dest: /etc/systemd/system/nginx.service
+
+- name: nginx.conf template
+  template:
+          src: nginx.conf.j2
+          dest: "{{ conf_path }}"
+
+- name: starting nginx
+  systemd:
+          name: nginx
+          state: started
+

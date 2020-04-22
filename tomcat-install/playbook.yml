@@ -11,3 +11,9 @@
             
             #- java8
             - tomcat
+    tags: tomcat
+
+    roles:
+            - nginx
+    tags: nginx
+

@@ -23,3 +23,14 @@ java_home_path: "usr/java/java-se-8u41-ri"
 
 java:  "https://download.java.net/openjdk/jdk8u41/ri/openjdk-8u41-b04-linux-x64-14_jan_2020.tar.gz"
 
+#NGINX VARS
+
+nginx_version: "nginx-1.16.1"
+nginx_download_url: "http://nginx.org/download/{{nginx_version }}.tar.gz"
+nginx_install_dir: "/tmp/{{nginx_version}}"
+prefix: "/etc/nginx"
+sbin_path: "/usr/sbin/nginx"
+modules_path: "/usr/lib/nginx/modules"
+conf_path: "/etc/nginx/nginx.conf"
+pid_path: "/var/run/nginx.pid"
+
