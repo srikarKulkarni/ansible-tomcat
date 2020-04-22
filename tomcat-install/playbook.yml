@@ -2,18 +2,10 @@
   - hosts: dev
     become: yes
     become_method: sudo
-    tasks:
-            - debug:
-                    msg: "{{tomcat}}"
-    #vars_files: 
-    #- "../tomcat-install/environments/dev/vars/dev.yml"
     roles:
-            
-            #- java8
             - tomcat
     tags: tomcat
-
-    roles:
             - nginx
     tags: nginx
+ 
 
