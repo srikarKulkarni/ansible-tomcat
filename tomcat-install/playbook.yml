@@ -1,11 +1,11 @@
 ---
-  - hosts: dev
+  - hosts: test
     become: yes
     become_method: sudo
     roles:
             - tomcat
     tags: tomcat
-            - nginx
-    tags: nginx
+    #           - nginx
+    #tags: nginx
  
 

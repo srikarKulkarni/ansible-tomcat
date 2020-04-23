@@ -20,11 +20,18 @@
           path: /opt/tomcat
           state: directory
           mode: 0755
+- name: check tomcat dir
+  stat:
+          path: "/opt/tomcat/apache-tomcat-{{tomcat_version}}"
+  register: tomcat_dir
+  
 - name: download tomcat
   unarchive:
           src: "{{ tomcat }}"
           dest: /opt/tomcat/
           remote_src: yes
+  when: tomcat_dir.stat.exists == false
+
 - name: change ownership
   file:
           path: /opt/tomcat/
@@ -49,5 +56,6 @@
 - name: start and enable tomcat service
   systemd:
           name: tomcat
+          daemon_reload: true
           state: started
           #- import_tasks: tomcat-users.yml
